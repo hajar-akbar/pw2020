@@ -1,3 +1,19 @@
+<?php
+// koneksi ke DB & pilih Db
+$conn = mysqli_connect('localhost', 'root', '', 'db_2020');
+
+// queri isi tabel mahasiswa
+
+$result = mysqli_query($conn, "SELECT * FROM mahasiswa");
+// $row = mysqli_fetch_row($result); ///array numeric 
+// $row = mysqli_fetch_assoc($result); /// array assosiasi 
+// $row = mysqli_fetch_array($result); /// array gabungan 
+
+while ($row = mysqli_fetch_assoc($result)) {
+  echo $row['nama'];
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +21,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
